@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4F5BF327268925005E7A08 /* SharedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F5BF227268925005E7A08 /* SharedContent.swift */; };
+		2A4F5BFC27268A0C005E7A08 /* SharedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F5BF227268925005E7A08 /* SharedContent.swift */; };
 		2A54CB632724018600624674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A54CB622724018600624674 /* AppDelegate.swift */; };
 		2A54CB652724018600624674 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A54CB642724018600624674 /* SceneDelegate.swift */; };
 		2A54CB672724018600624674 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A54CB662724018600624674 /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 		2A54CBB22724163E00624674 /* AppWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2A54CBAE2724163B00624674 /* AppWidget.intentdefinition */; };
 		2A54CBB32724163E00624674 /* AppWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2A54CBAE2724163B00624674 /* AppWidget.intentdefinition */; };
 		2A54CBB62724163E00624674 /* AppWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A54CBA52724163B00624674 /* AppWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2A5913902726BD0E0045C8CC /* WidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59138F2726BD0E0045C8CC /* WidgetProvider.swift */; };
+		2A5913962726BD7B0045C8CC /* WidgetModelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5913952726BD7B0045C8CC /* WidgetModelEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A4F5BF227268925005E7A08 /* SharedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContent.swift; sourceTree = "<group>"; };
 		2A54CB5F2724018600624674 /* WidgetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WidgetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A54CB622724018600624674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A54CB642724018600624674 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +89,8 @@
 		2A54CBAE2724163B00624674 /* AppWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = AppWidget.intentdefinition; sourceTree = "<group>"; };
 		2A54CBAF2724163E00624674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A54CBB12724163E00624674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A59138F2726BD0E0045C8CC /* WidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetProvider.swift; sourceTree = "<group>"; };
+		2A5913952726BD7B0045C8CC /* WidgetModelEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModelEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +194,10 @@
 		2A54CBAB2724163B00624674 /* AppWidget */ = {
 			isa = PBXGroup;
 			children = (
+				2A4F5BF227268925005E7A08 /* SharedContent.swift */,
 				2A54CBAC2724163B00624674 /* AppWidget.swift */,
+				2A59138F2726BD0E0045C8CC /* WidgetProvider.swift */,
+				2A5913952726BD7B0045C8CC /* WidgetModelEntry.swift */,
 				2A54CBAE2724163B00624674 /* AppWidget.intentdefinition */,
 				2A54CBAF2724163E00624674 /* Assets.xcassets */,
 				2A54CBB12724163E00624674 /* Info.plist */,
@@ -358,6 +368,7 @@
 			files = (
 				2A54CBB32724163E00624674 /* AppWidget.intentdefinition in Sources */,
 				2A54CB672724018600624674 /* ViewController.swift in Sources */,
+				2A4F5BF327268925005E7A08 /* SharedContent.swift in Sources */,
 				2A54CB632724018600624674 /* AppDelegate.swift in Sources */,
 				2A54CB652724018600624674 /* SceneDelegate.swift in Sources */,
 			);
@@ -384,6 +395,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A54CBB22724163E00624674 /* AppWidget.intentdefinition in Sources */,
+				2A5913962726BD7B0045C8CC /* WidgetModelEntry.swift in Sources */,
+				2A4F5BFC27268A0C005E7A08 /* SharedContent.swift in Sources */,
+				2A5913902726BD0E0045C8CC /* WidgetProvider.swift in Sources */,
 				2A54CBAD2724163B00624674 /* AppWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -534,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -553,7 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3QCVS5M6Q4;
 				INFOPLIST_FILE = WidgetDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +588,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3QCVS5M6Q4;
 				INFOPLIST_FILE = WidgetDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

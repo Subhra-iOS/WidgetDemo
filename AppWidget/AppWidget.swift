@@ -9,42 +9,47 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
-    }
-
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
-    }
-
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
-    }
-}
-
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationIntent
-}
 
 struct AppWidgetEntryView : View {
-    var entry: Provider.Entry
-
+    var entry: WidgetProvider.Entry
+    
+    @Environment(\.widgetFamily) var widgetFamily
+    
+    private var fontStyle: Font{
+        if widgetFamily != .systemSmall{
+            return .system(Font.TextStyle.largeTitle, design: Font.Design.rounded)
+        }else{
+            return .system(Font.TextStyle.footnote, design: Font.Design.rounded)
+        }
+    }
+    
     var body: some View {
-        Text(entry.date, style: .time)
+        //Text(entry.date, style: .time)
+        GeometryReader { geometry in
+            ZStack{
+                Shared.backgroundGradient
+                Image("pngegg")
+                    .resizable()
+                    .frame(width: widgetFamily != .systemSmall ? 200 : 150,
+                           height: widgetFamily != .systemSmall ? 200 : 150,
+                           alignment: .topLeading)
+                    .padding(.top, -20)
+                Text(entry.serviceName)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .font(fontStyle)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
+                    .background(
+                        Color(red: 0, green: 0, blue: 0, opacity: 0.7)
+                    ).blendMode(.overlay)
+                    .clipShape(Capsule())
+                if widgetFamily != .systemSmall{
+                    Spacer()
+                }
+                
+            } //: ZStack
+        } //: Geomatry Reader
     }
 }
 
@@ -53,17 +58,24 @@ struct AppWidget: Widget {
     let kind: String = "AppWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: WidgetProvider()) { entry in
             AppWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("App Widget")
+        .description("Your latest service.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 
 struct AppWidget_Previews: PreviewProvider {
     static var previews: some View {
-        AppWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        Group {
+            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent()))
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+        }
     }
 }
