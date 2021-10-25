@@ -13,11 +13,11 @@ struct WidgetProvider: IntentTimelineProvider {
     typealias Entry = WidgetModelEntry
     
     func placeholder(in context: Context) -> WidgetModelEntry {
-       return WidgetModelEntry(date: Date(), serviceName: "", serviceDes: "", configuration: ConfigurationIntent())
+       return WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent())
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (WidgetModelEntry) -> ()) {
-        let entry = WidgetModelEntry(date: Date(), serviceName: "", serviceDes: "", configuration: configuration)
+        let entry = WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: configuration)
         completion(entry)
     }
     
@@ -31,7 +31,7 @@ struct WidgetProvider: IntentTimelineProvider {
             let entry = WidgetModelEntry(date: entryDate, serviceName: "", serviceDes: "", configuration: configuration)
             entries.append(entry)
         }*/
-        let refreshDate: Date = Calendar.current.date(byAdding: .minute, value: 10, to: currentDate)!
+        let refreshDate: Date = Calendar.current.date(byAdding: .second, value: 5, to: currentDate)!
         let timeline = Timeline(entries: entries, policy: .after(refreshDate))
         completion(timeline)
         

@@ -16,7 +16,8 @@ struct WidgetModelEntry: TimelineEntry {
     
     static let services: [WidgetModelEntry] = [
         WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "A test", configuration: ConfigurationIntent()),
-        WidgetModelEntry(date: Date(), serviceName: "PRINT", serviceDes: "A test print", configuration: ConfigurationIntent())
+        WidgetModelEntry(date: Date(), serviceName: "PRINT", serviceDes: "A test print", configuration: ConfigurationIntent()),
+        WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "A test print", configuration: ConfigurationIntent())
     ]
 }
 

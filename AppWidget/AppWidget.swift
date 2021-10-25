@@ -17,39 +17,34 @@ struct AppWidgetEntryView : View {
     
     private var fontStyle: Font{
         if widgetFamily != .systemSmall{
-            return .system(Font.TextStyle.largeTitle, design: Font.Design.rounded)
+            return .system(Font.TextStyle.headline, design: Font.Design.rounded)
         }else{
-            return .system(Font.TextStyle.footnote, design: Font.Design.rounded)
+            return .system(Font.TextStyle.title, design: Font.Design.rounded)
         }
     }
     
     var body: some View {
-        //Text(entry.date, style: .time)
-        GeometryReader { geometry in
+        //Text(entry.serviceName)
+       // GeometryReader { geometry in
             ZStack{
                 Shared.backgroundGradient
-                Image("pngegg")
-                    .resizable()
-                    .frame(width: widgetFamily != .systemSmall ? 200 : 150,
-                           height: widgetFamily != .systemSmall ? 200 : 150,
-                           alignment: .topLeading)
-                    .padding(.top, -20)
-                Text(entry.serviceName)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(fontStyle)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
-                    .background(
-                        Color(red: 0, green: 0, blue: 0, opacity: 0.7)
-                    ).blendMode(.overlay)
-                    .clipShape(Capsule())
-                if widgetFamily != .systemSmall{
-                    Spacer()
+                VStack {
+                    Image("pngegg")
+                        .resizable()
+                        .frame(width: widgetFamily != .systemSmall ? 100 : 70,
+                               height: widgetFamily != .systemSmall ? 100 : 70,
+                           alignment: .center)
+                    Text(entry.serviceName)
+                        .foregroundColor(.white)
+                        .font(fontStyle)
+//                        .background(
+//                            Color(red: 0, green: 0, blue: 0, opacity: 0.7)
+//                        ).blendMode(.overlay)
+//                        .clipShape(Capsule())
                 }
                 
             } //: ZStack
-        } //: Geomatry Reader
+        //} //: Geomatry Reader
     }
 }
 
