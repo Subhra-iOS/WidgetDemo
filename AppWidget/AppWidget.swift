@@ -14,10 +14,11 @@ struct AppWidgetEntryView : View {
     var entry: WidgetProvider.Entry
     
     @Environment(\.widgetFamily) var widgetFamily
+    private static let deeplinkURL: URL = URL(string: "widget-deeplink://")!
     
     private var fontStyle: Font{
         if widgetFamily != .systemSmall{
-            return .system(Font.TextStyle.headline, design: Font.Design.rounded)
+            return .system(Font.TextStyle.largeTitle, design: Font.Design.rounded)
         }else{
             return .system(Font.TextStyle.title, design: Font.Design.rounded)
         }
@@ -37,6 +38,7 @@ struct AppWidgetEntryView : View {
                     Text(entry.serviceName)
                         .foregroundColor(.white)
                         .font(fontStyle)
+                        .widgetURL(AppWidgetEntryView.deeplinkURL)
 //                        .background(
 //                            Color(red: 0, green: 0, blue: 0, opacity: 0.7)
 //                        ).blendMode(.overlay)
@@ -65,11 +67,11 @@ struct AppWidget: Widget {
 struct AppWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent()))
+            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "PRINT", serviceDes: "", configuration: ConfigurationIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent()))
+            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "PRINT", serviceDes: "", configuration: ConfigurationIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "MPS", serviceDes: "", configuration: ConfigurationIntent()))
+            AppWidgetEntryView(entry: WidgetModelEntry(date: Date(), serviceName: "PRINT", serviceDes: "", configuration: ConfigurationIntent()))
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
     }

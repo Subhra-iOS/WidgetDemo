@@ -10,13 +10,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var _rootVC: ViewController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene :UIWindowScene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: windowScene)
+        let _storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        _rootVC = ControllerFactory.creatRootViewController(_storyboard)
+        self.window?.rootViewController = self.initiateRoot(_rootVC)
+        self.window?.makeKeyAndVisible()
+       // self.openedFromWidget(urlContexts: connectionOptions.urlContexts)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,6 +51,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    
+    // App opened from background
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        self.openedFromWidget(urlContexts: URLContexts)
+    }
+    
+    private func openedFromWidget(urlContexts: Set<UIOpenURLContext>) {
+        guard let _ : UIOpenURLContext = urlContexts.first(where: { $0.url.absoluteString == "widget-deeplink://" }) else { return }
+        print("🚀 Launched from widget")
+        if let rootVC: ViewController = _rootVC{
+            rootVC.showAlert()
+        }
     }
 
 

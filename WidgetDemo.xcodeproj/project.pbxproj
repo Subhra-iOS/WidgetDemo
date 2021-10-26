@@ -26,6 +26,8 @@
 		2A54CBB62724163E00624674 /* AppWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A54CBA52724163B00624674 /* AppWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2A5913902726BD0E0045C8CC /* WidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59138F2726BD0E0045C8CC /* WidgetProvider.swift */; };
 		2A5913962726BD7B0045C8CC /* WidgetModelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5913952726BD7B0045C8CC /* WidgetModelEntry.swift */; };
+		2A7125B82727FC41000340A8 /* ControllerFactoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7125B72727FC41000340A8 /* ControllerFactoryModule.swift */; };
+		2A7125BE27280BDE000340A8 /* SceneDelegate+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7125BD27280BDE000340A8 /* SceneDelegate+Navigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		2A54CBB12724163E00624674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A59138F2726BD0E0045C8CC /* WidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetProvider.swift; sourceTree = "<group>"; };
 		2A5913952726BD7B0045C8CC /* WidgetModelEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModelEntry.swift; sourceTree = "<group>"; };
+		2A7125B72727FC41000340A8 /* ControllerFactoryModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerFactoryModule.swift; sourceTree = "<group>"; };
+		2A7125BD27280BDE000340A8 /* SceneDelegate+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Navigation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +157,10 @@
 		2A54CB612724018600624674 /* WidgetDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2A7125B72727FC41000340A8 /* ControllerFactoryModule.swift */,
 				2A54CB622724018600624674 /* AppDelegate.swift */,
 				2A54CB642724018600624674 /* SceneDelegate.swift */,
+				2A7125BD27280BDE000340A8 /* SceneDelegate+Navigation.swift */,
 				2A54CB662724018600624674 /* ViewController.swift */,
 				2A54CB682724018600624674 /* Main.storyboard */,
 				2A54CB6B2724018800624674 /* Assets.xcassets */,
@@ -366,8 +372,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7125B82727FC41000340A8 /* ControllerFactoryModule.swift in Sources */,
 				2A54CBB32724163E00624674 /* AppWidget.intentdefinition in Sources */,
 				2A54CB672724018600624674 /* ViewController.swift in Sources */,
+				2A7125BE27280BDE000340A8 /* SceneDelegate+Navigation.swift in Sources */,
 				2A4F5BF327268925005E7A08 /* SharedContent.swift in Sources */,
 				2A54CB632724018600624674 /* AppDelegate.swift in Sources */,
 				2A54CB652724018600624674 /* SceneDelegate.swift in Sources */,
@@ -692,7 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3QCVS5M6Q4;
 				INFOPLIST_FILE = AppWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -714,7 +722,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3QCVS5M6Q4;
 				INFOPLIST_FILE = AppWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
